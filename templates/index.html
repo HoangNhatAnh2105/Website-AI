@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Tích Đánh Giá Giả</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            max-width: 700px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #6a0dad;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        textarea, select, button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-family: 'Poppins', sans-serif;
+            transition: border 0.3s ease;
+        }
+
+        textarea:focus, select:focus, button:focus {
+            border-color: #8e44ad;
+            outline: none;
+        }
+
+        button {
+            background: #8e44ad;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #6c3483;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .true {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .fake {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1, h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fake Review Analysis</h1>
+        <form method="POST" action="/">
+            <label for="review">Review Content:</label>
+            <textarea name="review" rows="6" placeholder="Enter the value of the review content..." required></textarea>
+
+            <label for="rating">Rating:</label>
+            <select name="rating" required>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Good</option>
+                <option value="3">3 - Average</option>
+                <option value="2">2 - Poor</option>
+                <option value="1">1 - Very Poor</option>
+            </select>
+
+            <label for="product_type">Product Category:</label>
+            <select name="product_type" required>
+                <option value="Home_and_Kitchen">Home_and_Kitchen</option>
+                <option value="Sports_and_Outdoors">Sports_and_Outdoors</option>
+                <option value="Toys_and_Games">Toys_and_Games</option>
+                <option value="Pet_Supplies">Pet_Supplies</option>
+            </select>
+
+            <button type="submit">Analytical review</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
