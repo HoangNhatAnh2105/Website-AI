@@ -2,3 +2,5 @@ flask
 joblib
 numpy
 gunicorn
+gensim
+scipy==1.7.0
