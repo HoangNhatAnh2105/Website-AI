@@ -23,6 +23,7 @@ The generated fake reviews dataset, containing 2500 fake reviews and 2500 real p
 6. PhoBERT + Random Forest
 ## Performance Overview of ML Models Leveraged
 The Support Vector Machine (SVM) model achieved the highest prediction accuracy at 72.5%, closely followed by the XGBoost model with an accuracy of 72%. The PhoBERT + Random Forest model also performed well, with an accuracy of 72%. The Random Forest model had a prediction accuracy of 67.2%, while Logistic Regression reached 72.2%. The Decision Tree model performed the worst, with an accuracy of only 60.6%.
+![image](https://github.com/user-attachments/assets/71bdc133-48db-4512-91d9-927d3f6f66a1)
 ## Develop web
 - Flask: A Python web framework used to develop lightweight and easily deployable web applications. Flask also supports creating and using HTML files like home.html and index.html for the user interface, making it easy to communicate with the application's backend.
 - Joblib: A library used to load and use pre-trained machine learning models from stored files (svm_model.pkl).
